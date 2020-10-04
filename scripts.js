@@ -26,15 +26,43 @@ $('.textarea').each(function(){
     }
 });
 
-var oneBtn = document.getElementById("oneBtn")
+
+$('.saveBtn').click(function(){
+
+    var key = $(this).siblings('textarea').attr('id');
+    console.log("key: " + key)
+    var value = $(this).siblings('textarea').val();
+    console.log("value: " + value)
+  
+    localStorage.setItem("key", JSON.stringify(value));
+  });
+
+  function init() {
+    // var key = $(this).siblings('textarea').attr('id');
+    // var value = $(this).siblings('textarea').val();
+    var content = JSON.parse(localStorage.getItem(key));
+    console.log("hithere", key)
+}
+$(document).ready(function() {
+ init();
+});
+
+
+
+//   • Establish an on-click event listener
+//   • When clicked, get the key/value you want to save (hour/text)
+//   • Save this key/value to localStorage
+//   • Write an init() function, that runs on page load
+//   • In this init() function, get all key/value pairs from localStorage
+//   • Apply them to the page
+
+
+
+var oneBtn = document.getElementsByClassName("oneBtn")
 var one = document.getElementById("one")
 var oneContent = document.getElementsByName("oneContent")
 one.innerText = moment('13:00','h A').format('h A');
-$(oneBtn).click(function(){
-        var description = $.trim($("#13").val());
-        localStorage.getItem(description)
-        localStorage.setItem("#13", description)
-});
+
 
 
 var twoBtn = document.getElementById("twoBtn")
@@ -86,10 +114,5 @@ var twelveBtn = document.getElementById("twelveBtn")
 var twelve = document.getElementById("twelve")
 twelve.innerText = moment('12:00','h A').format('h A');
 
-// var currentDay = document.getElementById("currentDay")
-// var currentTime = parseInt(moment().format('HH'));
-// var hour = document.getElementsByClassName("hour")
-// var row = document.getElementById("row")
-// var textBox = document.getElementById("event")
 
 
