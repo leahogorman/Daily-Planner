@@ -9,13 +9,13 @@ var update = function() {
     console.log("hi there", currentTime);
 
     if (hour < currentTime) {
-        $(row).addClass("past");
+        $(hour).addClass("past");
     }
     if (hour > currentTime) {
-        $(row).addClass("future");
+        $(hour).addClass("future");
     }
     if (hour = currentTime) {
-        $(row).addClass("present");
+        $(hour).addClass("present");
     }
 }
 setInterval(update, 1000);
