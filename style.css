@@ -14,10 +14,10 @@ body {
 }
 
 textarea{
+  font-weight: bold;
   background: transparent;
   border: none;
   resize: none;
-  color: #000000;
   border-left: 1px solid lightgray;
   padding: 10px;
   width: 80%;
@@ -54,6 +54,7 @@ textarea{
 }
 
 .hour {
+  text-align: center;
   width: 30px;
   margin: auto;
   height: 50%;
@@ -61,18 +62,18 @@ textarea{
 }
 
 .past {
-  background-color: blue;
-  color: white;
+  background-color: mistyrose;
+  color: lightgrey;
 }
 
 .present {
-  background-color: pink;
-  color: white;
+  background-color: lightpink;
+  color: gray;
 }
 
 .future {
-  background-color: orange;
-  color: white;
+  background-color: palevioletred;
+  color: black;
 }
 
 .saveBtn {
