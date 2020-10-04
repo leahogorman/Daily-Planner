@@ -6,16 +6,16 @@ var hour = document.getElementsByClassName("hour")
 var update = function() {
     currentDay.innerHTML = moment().format('MMMM Do YYYY, h:mm:ss a');
     currentTime = moment().format('LT');
-    console.log("hi there", + currentTime);
+    console.log("hi there", currentTime);
 
     if (hour < currentTime) {
-        $(hour).addClass("past");
+        $(row).addClass("past");
     }
     if (hour > currentTime) {
-        $(hour).addClass("future");
+        $(row).addClass("future");
     }
     if (hour = currentTime) {
-        $(hour).addClass("present");
+        $(row).addClass("present");
     }
 }
 setInterval(update, 1000);
