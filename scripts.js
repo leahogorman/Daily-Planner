@@ -1,16 +1,17 @@
-window.onload = "readyFunction"
+// Variables pulled from HTML
 currentDay = document.getElementById("currentDay")
 var row = document.getElementById("row")
 var hour = document.getElementsByClassName("hour")
 currentTime = moment().format("H");
 
-
+// Update current time by the second
 var update = function() {
     currentDay.innerHTML = moment().format('MMMM Do YYYY, h:mm:ss a');
     currentTime;
 };
 setInterval(update, 1000);
 
+// Function to change the color based on past, present, or future time.
 var $array = [];
 $('.textarea').each(function(){
     var  currentTime = moment().hours()
@@ -26,6 +27,7 @@ $('.textarea').each(function(){
     }
 });
 
+// Function to save to Local Storage on click.
 
 $('.saveBtn').click(function(){
 
@@ -34,80 +36,59 @@ $('.saveBtn').click(function(){
     var saveDescription = $(this).siblings('textarea').val();
     console.log("value: " + saveDescription);
 
-    localStorage.setItem("_" + saveHour, saveDescription);
+    localStorage.setItem(saveHour, saveDescription);
   });
 
 
+// Function to pull existing info from Local Storage on load.
 
-  function whenOpened() {
+function whenOpened() {
  for (var i=9; i < 21; i++) {
-     var leah = localStorage.getItem("_" + i)
-     console.log(leah)
-    $("_" + i).val(leah)
+     var loadInfo = localStorage.getItem("_" + i)
+     console.log(loadInfo)
+    $("#_" + i).val(loadInfo)
     console.log("hithere" + 5)
  }
-
 }
 $(document).ready(function() {
  whenOpened();
 });
 
 
-
-
-var oneBtn = document.getElementsByClassName("oneBtn")
+// Hardcoded Elements for the "Hour" section
 var one = document.getElementById("one")
-var oneContent = document.getElementsByName("oneContent")
 one.innerText = moment('13:00','h A').format('h A');
 
-
-
-var twoBtn = document.getElementById("twoBtn")
 var two = document.getElementById("two")
 two.innerText = moment('14:00','h A').format('h A');
 
-
-var threeBtn = document.getElementById("threeBtn")
 var three = document.getElementById("three")
 three.innerText = moment('15:00','h A').format('h A');
 
-
-var fourBtn = document.getElementById("fourBtn")
 var four = document.getElementById("four")
 four.innerText = moment('16:00','h A').format('h A');
 
-var fiveBtn = document.getElementById("fiveBtn")
 var five = document.getElementById("five")
 five.innerText = moment('17:00','h A').format('h A');
 
-var sixBtn = document.getElementById("sixBtn")
 var six = document.getElementById("six")
 six.innerText = moment('18:00','h A').format('h A');
 
-
-var sevenBtn = document.getElementById("sevenBtn")
 var seven = document.getElementById("seven")
 seven.innerText = moment('19:00','h A').format('h A');
 
-
-var eightBtn = document.getElementById("eightBtn")
 var eight = document.getElementById("eight")
 eight.innerText = moment('20:00','h A').format('h A');
 
-
-var nineBtn = document.getElementById("nineBtn")
 var nine = document.getElementById("nine")
 nine.innerText = moment('09:00','h A').format('h A');
 
-var tenBtn = document.getElementById("tenBtn")
 var ten = document.getElementById("ten")
 ten.innerText = moment('10:00','h A').format('h A');
 
-var elevenBtn = document.getElementById("elevenBtn")
 var eleven = document.getElementById("eleven")
 eleven.innerText = moment('11:00','h A').format('h A');
 
-var twelveBtn = document.getElementById("twelveBtn")
 var twelve = document.getElementById("twelve")
 twelve.innerText = moment('12:00','h A').format('h A');
 
