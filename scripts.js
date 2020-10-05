@@ -14,7 +14,7 @@ setInterval(update, 1000);
 var $array = [];
 $('.textarea').each(function(){
     var  currentTime = moment().hours()
-    var id = parseInt($(this).attr("id"));
+    var id = parseInt($(this).attr("id").substr(1));
     console.log("hi there", id)
         
     if (id < currentTime) {
@@ -29,32 +29,29 @@ $('.textarea').each(function(){
 
 $('.saveBtn').click(function(){
 
-    var key = $(this).siblings('textarea').attr('id');
-    console.log("key: " + key)
-    var value = $(this).siblings('textarea').val();
-    console.log("value: " + value)
-  
-    localStorage.setItem("key", JSON.stringify(value));
+    var saveHour = $(this).siblings('textarea').attr('id');
+    console.log("key: " + saveHour)
+    var saveDescription = $(this).siblings('textarea').val();
+    console.log("value: " + saveDescription);
+
+    localStorage.setItem("_" + saveHour, saveDescription);
   });
 
-  function init() {
-    // var key = $(this).siblings('textarea').attr('id');
-    // var value = $(this).siblings('textarea').val();
-    var content = JSON.parse(localStorage.getItem(key));
-    console.log("hithere", key)
+
+
+  function whenOpened() {
+ for (var i=9; i < 21; i++) {
+     var leah = localStorage.getItem("_" + i)
+     console.log(leah)
+    $("_" + i).val(leah)
+    console.log("hithere" + 5)
+ }
+
 }
 $(document).ready(function() {
- init();
+ whenOpened();
 });
 
-
-
-//   • Establish an on-click event listener
-//   • When clicked, get the key/value you want to save (hour/text)
-//   • Save this key/value to localStorage
-//   • Write an init() function, that runs on page load
-//   • In this init() function, get all key/value pairs from localStorage
-//   • Apply them to the page
 
 
 
